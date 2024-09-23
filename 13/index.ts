@@ -1,7 +1,7 @@
 function romanToInt(s: string): number {
   let numberConvertedFromRomanToInteger = 0;
 
-  const arrayOfRomans: string[] = s.split('');
+  const arrayOfRomans: Array<string> = s.split('');
 
   const convertRomanLetterToNumber = (romanLetter:string, nextRomanLetter: string): number => {
     let letterConvertedToNumber = 0;
