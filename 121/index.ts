@@ -1,4 +1,4 @@
-// Second attempt
+// Second attempt - Time Limit Exceeded for GIANT array (200/212 testcases):
 
 // function maxProfit(prices: number[]): number {
 //   let profit = 0;
