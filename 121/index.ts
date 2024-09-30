@@ -1,3 +1,45 @@
+function maxProfit(prices: number[]): number {
+  let profit = 0;
+
+  const maxValue = Math.max(...prices);
+  const minValue = Math.min(...prices);
+
+  const indexOfMaxValue = prices.indexOf(maxValue);
+  const indexOfMinValue = prices.indexOf(minValue);
+
+  if (indexOfMaxValue > indexOfMinValue) {
+    return maxValue - minValue;
+  }
+
+  for (
+    let comparisonGap = 1;
+    comparisonGap < prices.length - 1;
+    comparisonGap++
+  ) {
+    for (
+      let currentPosition = 0;
+      currentPosition < prices.length;
+      currentPosition++
+    ) {
+      if (currentPosition + comparisonGap > prices.length - 1) {
+        break;
+      }
+
+      const valueOnLeft = prices[currentPosition];
+      const valueOnRight = prices[currentPosition + comparisonGap];
+
+      // if (valueOnLeft === minValue && valueOnRight === maxValue) {
+      //   return maxValue - minValue;
+      // }
+
+      if (valueOnLeft < valueOnRight && valueOnRight - valueOnLeft > profit) {
+        profit = valueOnRight - valueOnLeft;
+      }
+    }
+  }
+  return profit;
+}
+
 // Second attempt - Time Limit Exceeded for GIANT array (200/212 testcases):
 
 // function maxProfit(prices: number[]): number {
