@@ -1,44 +1,48 @@
 function maxProfit(prices: number[]): number {
   let profit = 0;
 
-  const maxValue = Math.max(...prices);
-  const minValue = Math.min(...prices);
+  let minValue = 0;
 
-  const indexOfMaxValue = prices.indexOf(maxValue);
-  const indexOfMinValue = prices.indexOf(minValue);
+  for (let i = 0; i < prices.length; i++) {
+    if (i === 0) {
+      minValue = prices[i];
+      continue;
+    }
 
-  if (indexOfMaxValue > indexOfMinValue) {
-    return maxValue - minValue;
-  }
+    if (prices[i] - minValue > profit) {
+      profit = prices[i] - minValue;
+    }
 
-  for (
-    let comparisonGap = 1;
-    comparisonGap < prices.length - 1;
-    comparisonGap++
-  ) {
-    for (
-      let currentPosition = 0;
-      currentPosition < prices.length;
-      currentPosition++
-    ) {
-      if (currentPosition + comparisonGap > prices.length - 1) {
-        break;
-      }
-
-      const valueOnLeft = prices[currentPosition];
-      const valueOnRight = prices[currentPosition + comparisonGap];
-
-      // if (valueOnLeft === minValue && valueOnRight === maxValue) {
-      //   return maxValue - minValue;
-      // }
-
-      if (valueOnLeft < valueOnRight && valueOnRight - valueOnLeft > profit) {
-        profit = valueOnRight - valueOnLeft;
-      }
+    if (prices[i] < minValue) {
+      minValue = prices[i];
     }
   }
+
   return profit;
 }
+
+// Third attempt - Time Limit Exceeded for GIANT array (200/212 testcases):
+
+// function maxProfit(prices: number[]): number {
+//   let profit = 0;
+
+//   const prices_2: number[] = [];
+
+//   for (let i = 0; i < prices.length; i++) {
+//     if (prices_2.length === 0) {
+//       prices_2.push(prices[i]);
+//       continue;
+//     }
+
+//     if (prices[i] - Math.min(...prices_2) > profit) {
+//       profit = prices[i] - Math.min(...prices_2);
+//     }
+
+//     prices_2.push(prices[i]);
+//   }
+
+//   return profit;
+// }
 
 // Second attempt - Time Limit Exceeded for GIANT array (200/212 testcases):
 
@@ -112,4 +116,4 @@ function maxProfit(prices: number[]): number {
 //   return profit;
 // }
 
-// console.log(maxProfit([7, 6, 4, 3, 1]));
+console.log(maxProfit([7, 6, 4, 3, 1]));
