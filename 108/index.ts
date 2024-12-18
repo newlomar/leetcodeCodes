@@ -24,5 +24,6 @@ class TreeNode {
 }
 
 function sortedArrayToBST(nums: number[]): TreeNode | null {
+  const root = nums[0];
   return null;
 }
