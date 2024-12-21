@@ -24,6 +24,24 @@ class TreeNode {
 }
 
 function sortedArrayToBST(nums: number[]): TreeNode | null {
-  const root: TreeNode = new TreeNode(nums[0], null, null);
-  return null;
+  if (nums.length === 0) {
+    return null;
+  }
+
+  const breakpoint = Math.floor(nums.length / 2);
+
+  const root =
+    nums.length > 1
+      ? new TreeNode(
+          nums[breakpoint],
+          sortedArrayToBST(nums.slice(0, breakpoint)),
+          sortedArrayToBST(nums.slice(breakpoint + 1, nums.length))
+        )
+      : nums.length === 1
+      ? new TreeNode(nums[0], null, null)
+      : null;
+
+  return root;
 }
+
+console.log(sortedArrayToBST([-10, -3, 0, 5, 9]));
