@@ -20,4 +20,4 @@ function generate(numRows) {
     }
     return arr;
 }
-console.log(generate(5));
+console.log(generate(3));
