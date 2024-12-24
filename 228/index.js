@@ -13,7 +13,6 @@ function summaryRanges(nums) {
         list_array.push(nums.splice(0, 1));
     }
     return list_array.map(function (item) {
-        console.log(item);
         if (item.length === 1) {
             return String(item[0]);
         }
