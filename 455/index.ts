@@ -10,7 +10,7 @@ function findContentChildren(g: number[], s: number[]): number {
     while (count < reversed_sorted_children_greed.length) {
       if (reversed_sorted_cookies[i] >= reversed_sorted_children_greed[count]) {
         content_children++;
-        reversed_sorted_children_greed.splice(count, 1);
+        reversed_sorted_children_greed.splice(0, count + 1);
         break;
       }
       count++;
