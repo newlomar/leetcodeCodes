@@ -6,7 +6,6 @@ function findPoisonedDuration(timeSeries: number[], duration: number): number {
 
     if (timeSeries[i + 1]) {
 
-
       if (timeSeries[i] === timeSeries[i + 1]) {
         poisonedDuration -= duration;
         continue;
