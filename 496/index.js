@@ -1,6 +1,5 @@
 function nextGreaterElement(nums1, nums2) {
     var nums1Map = {};
-    // const finalArray = Array.from({ length: nums1.length }, (_, i) => -1);
     for (var i = 0; i < nums1.length; i++) {
         nums1Map[nums1[i]] = {
             value: -1,
