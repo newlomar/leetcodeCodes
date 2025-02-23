@@ -10,6 +10,6 @@ function distributeCandies(candyType: number[]): number {
   return halfCandies;
 }
 
-console.log([1, 1, 2, 2, 3, 3]);
-console.log([1, 1, 2, 3]);
-console.log([6, 6, 6, 6]);
+console.log(distributeCandies([1, 1, 2, 2, 3, 3]));
+console.log(distributeCandies([1, 1, 2, 3]));
+console.log(distributeCandies([6, 6, 6, 6]));
