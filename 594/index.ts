@@ -8,9 +8,11 @@ function findLHS(nums: number[]): number {
     }
 
     const difference = nums[i] - nums[initialPosition];
+
     if (difference === 0) {
       continue;
     }
+
     if (difference === 1) {
       lhs = i - initialPosition + 1 > lhs ? i - initialPosition + 1 : lhs;
       continue;
